@@ -1,0 +1,24 @@
+<div id="details"></div>
+<script>
+    var reqcount = 0;
+    navigator.geolocation.watchPosition(successCallback,errorCallback,options);
+    function successCallback(position){
+        const{accuracy,latitude,longitude,altitude,heading,speed }=position.coords;
+        reqcount++;
+        details.innerHTML="accuracy "+accuracy+"<br>";
+        details.innerHTML+="latitude " +latitude+"  |longitude "+longitude+"<br>";
+        details.innerHTML +="altitude "+altitude+"<br>";
+        details.innerHTML+="heading " +heading+"<br>";
+        details.innerHTML+="speed " +speed+"<br>";
+        details.innerHTML +="reqcount " +reqcount;
+
+    }
+    function errorCallback(error){
+        
+    }
+    var options={
+        enableHighAccuracy : false,
+        timeout:5000,
+        maximumAge:0
+    };
+</script>
